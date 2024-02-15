@@ -1,0 +1,75 @@
+---
+title: "QUIZ_TAPAY-CUEVA"
+author: "Jack Tapay-Cueva"
+date: "2024-02-15"
+output: html_document
+---
+
+## Problem 1
+
+
+```{r}
+x <- c(Yoshi = 10L,
+Mario = 31L,
+Luigi = 72L,
+Peach = 11L,
+Toad = 38L)
+
+print("Integer Subsetting")
+x[c(1, 4)] 
+
+print("Negative Integer Subsetting")
+x[-c(2, 3, 5)]
+
+print("Logical Subsetting")
+x[c(TRUE, FALSE, FALSE, TRUE, FALSE)]
+
+print("Name Subsetting")
+x[c("Yoshi", "Peach")]
+```
+
+## Problem 2
+
+```{r}
+x["Yoshi"] <- 19L
+x
+```
+
+## Problem 3A
+
+You can also embed plots, for example:
+
+```{r}
+library(tibble)
+library(readr)
+library(dplyr)
+
+wedding <- list(venue = "chick-fil-a", guest = tribble(~name, ~meal, ~age,##--------/------/-----
+"Yoshi", "V", 29L,
+"Wario", "C", 27L,
+"Bowser", "V", 34L,
+"Luigi", "C", 36L,
+"Toad", "B", 34L),
+bride = "Peach",
+groom = "Mario",
+date = parse_date("11/10/2020", "%d/%m/%Y"))
+
+wedding$guest <- wedding$guest %>%
+  filter(name != "Wario")
+wedding
+```
+
+## Problem 3B
+
+```{r}
+meal <- c(V = "Vegetarian", C = "Chicken", B = "Beef")
+wedding$meal <- meal
+wedding
+```
+
+## Problem 3C
+
+```{r}
+wedding$venue <- "Chick-fil-a"
+wedding
+```
